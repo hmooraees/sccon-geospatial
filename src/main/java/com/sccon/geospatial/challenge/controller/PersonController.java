@@ -1,8 +1,10 @@
 package com.sccon.geospatial.challenge.controller;
 
 import com.sccon.geospatial.challenge.adapter.PersonAdapter;
+import com.sccon.geospatial.challenge.dto.PersonPartialRequest;
 import com.sccon.geospatial.challenge.dto.PersonRequest;
 import com.sccon.geospatial.challenge.dto.PersonResponse;
+import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpStatus;
@@ -35,7 +37,7 @@ public class PersonController {
     }
 
     @PostMapping
-    public HttpEntity<PersonResponse> create(@RequestBody PersonRequest request) {
+    public HttpEntity<PersonResponse> create(@Valid @RequestBody PersonRequest request) {
         PersonResponse response = this.adapter.createPerson(request);
 
         return ResponseEntity.status(HttpStatus.CREATED).body(response);
@@ -49,14 +51,14 @@ public class PersonController {
     }
 
     @PutMapping("/{id}")
-    public HttpEntity<PersonResponse> update(@PathVariable Long id, @RequestBody PersonRequest request) {
+    public HttpEntity<PersonResponse> update(@PathVariable Long id, @Valid @RequestBody PersonRequest request) {
         PersonResponse response = this.adapter.updatePerson(id, request);
 
         return ResponseEntity.status(HttpStatus.OK).body(response);
     }
 
     @PatchMapping("/{id}")
-    public HttpEntity<PersonResponse> updateField(@PathVariable Long id, @RequestBody PersonRequest request) {
+    public HttpEntity<PersonResponse> updateField(@PathVariable Long id, @Valid @RequestBody PersonPartialRequest request) {
         PersonResponse response = this.adapter.updateFieldPerson(id, request);
 
         return ResponseEntity.status(HttpStatus.OK).body(response);

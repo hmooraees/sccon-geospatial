@@ -1,6 +1,7 @@
 package com.sccon.geospatial.challenge.adapter;
 
 import com.sccon.geospatial.challenge.domain.Person;
+import com.sccon.geospatial.challenge.dto.PersonPartialRequest;
 import com.sccon.geospatial.challenge.dto.PersonRequest;
 import com.sccon.geospatial.challenge.dto.PersonResponse;
 import com.sccon.geospatial.challenge.service.PersonService;
@@ -36,7 +37,7 @@ public class PersonAdapter {
         return PersonTranslate.toResponse(this.service.updatePerson(id, person));
     }
 
-    public PersonResponse updateFieldPerson(Long id, PersonRequest request) {
+    public PersonResponse updateFieldPerson(Long id, PersonPartialRequest request) {
         Person person = PersonTranslate.toDomain(request);
 
         return PersonTranslate.toResponse(this.service.updateFieldPerson(id, person));

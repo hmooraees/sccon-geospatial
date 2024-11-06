@@ -15,21 +15,15 @@ import lombok.RequiredArgsConstructor;
 @AllArgsConstructor
 @JsonSerialize
 @Data
-public class PersonRequest {
+public class PersonPartialRequest {
 
-    @JsonProperty("id")
-    private Long id;
-
-    @NotBlank(message = "Field name is required")
     @JsonProperty("name")
     private String name;
 
-    @NotNull(message = "Field birth is required")
     @LocalDateIsValidFormat(message = "Field birth with invalid date format. The valid format is yyyy-MM-dd.")
     @JsonProperty("birth")
     private String birth;
 
-    @NotNull(message = "Field admission is required")
     @LocalDateIsValidFormat(message = "Field admission with invalid date format. The valid format is yyyy-MM-dd.")
     @JsonProperty("admission")
     private String admission;

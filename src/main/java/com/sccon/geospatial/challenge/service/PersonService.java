@@ -168,7 +168,7 @@ public class PersonService {
             return actualSalary.divide(MIN_SALARY, 2, RoundingMode.CEILING).doubleValue();
         }
 
-        return null;
+        return 0.0;
     }
 
     private boolean validatePersonInMap(Long id) {
