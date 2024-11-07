@@ -33,7 +33,7 @@
 
 ``Headers:`` ``Content-Type: application/json``
 
-``Body:`` ``{ "id": "number", "name": "string", "birth": "string", "admission": "double" }``
+``Body:`` ``{ "id": "number", "name": "string", "birth": "string", "admission": "string" }``
 
 - Observação: Todos os endpoints do requisito foram desenvolvidos. Necessário utilizar os métodos HTTP específicos para cada solicitação.
 
